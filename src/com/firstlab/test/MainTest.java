@@ -98,12 +98,12 @@ class MainTest {
 
     @Test
     public void validateEmailDomainAndTLD_True() {
-        assertTrue(emailValidator.validateEmailDomainAndTLD("aA.com"));
+        assertTrue(emailValidator.validateEmailDomainAndTLD("aA@a.idk"));
     }
 
     @Test
     public void validateEmailSymbols_False() {
-        assertFalse(emailValidator.validateEmailSymbols("emailas@gmailas.com"));
+        assertFalse(emailValidator.validateEmailSymbols("emailas123@gmailas.com"));
     }
 
     @Test
