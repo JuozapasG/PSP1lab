@@ -92,13 +92,13 @@ class MainTest {
 
     @Test
     public void validateEmailDomainAndTLD_False() {
-        assertFalse(emailValidator.validateEmailDomainAndTLD("aA.com"));
+        assertFalse(emailValidator.validateEmailDomainAndTLD("aA@a.idk"));
     }
 
 
     @Test
     public void validateEmailDomainAndTLD_True() {
-        assertTrue(emailValidator.validateEmailDomainAndTLD("aA@a.idk"));
+        assertTrue(emailValidator.validateEmailDomainAndTLD("aA@gmai.com"));
     }
 
     @Test
