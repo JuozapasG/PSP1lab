@@ -103,12 +103,12 @@ class MainTest {
 
     @Test
     public void validateEmailSymbols_False() {
-        assertFalse(emailValidator.validateEmailSymbols("emailas123@gmailas.com"));
+        assertFalse(emailValidator.validateEmailSymbols("emailas@gmailas.com"));
     }
 
     @Test
     public void validateEmailSymbols_True() {
-        assertTrue(emailValidator.validateEmailSymbols("emailas@gmailas.com"));
+        assertTrue(emailValidator.validateEmailSymbols("emailas123@gmailas.com"));
     }
 
 }
