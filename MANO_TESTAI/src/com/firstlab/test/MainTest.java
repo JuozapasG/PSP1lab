@@ -1,8 +1,5 @@
 package com.firstlab.test;
 
-import com.firstlab.Validators.EmailValidator;
-import com.firstlab.Validators.PasswordValidator;
-import com.firstlab.Validators.PhoneValidator;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
 
