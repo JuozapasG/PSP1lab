@@ -1,12 +1,18 @@
 package lt.mif.ood.PasswordChecker.Validators;
 
-public class LengthValidator implements PasswordValidator{
+public class LengthValidator implements PasswordValidator {
 
-    public LengthValidator(int minimumLength) {
+    private final Integer length;
+
+    public LengthValidator(Integer length) {
+        if(length == null || length < 0){
+            throw new IllegalArgumentException("length cant be null");
+        }
+        this.length = length;
     }
 
     @Override
     public boolean isValid(String password) {
-        return true;
+        return password.length() >= length;
     }
 }

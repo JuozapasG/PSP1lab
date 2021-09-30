@@ -27,6 +27,7 @@ public class TestLengthValidator {
     @Test
     void disallowPasswordsShorterThanMinimumLength(){
         PasswordValidator lengthValidator = new LengthValidator(5);
-        assertEquals(true, lengthValidator.isValid("aa"));
+        //assertEquals(true, lengthValidator.isValid("aa")); // blogas testas
+        assertEquals(false, lengthValidator.isValid("aa"));
     }
 }

@@ -7,14 +7,14 @@ import static org.junit.jupiter.api.Assertions.assertThrows;
 public class TestTelephoneNumberFormat {
 
     @Test
-    void failWithNullPrefixes(){
+    void failWithNullPrefixes() {
         assertThrows(IllegalArgumentException.class, () -> {
             new TelephoneNumberFormat(10, null, "8");
         });
     }
 
     @Test
-    void failWithEmptyPrefixes(){
+    void failWithEmptyPrefixes() {
         assertThrows(IllegalArgumentException.class, () -> {
             new TelephoneNumberFormat(10, "+370", "");
         });
@@ -25,14 +25,14 @@ public class TestTelephoneNumberFormat {
     }
 
     @Test
-    void failWithNegativeLength(){
+    void failWithNegativeLength() {
         assertThrows(IllegalArgumentException.class, () -> {
             new TelephoneNumberFormat(-8, "+370", "8");
         });
     }
 
     @Test
-    void failWithPrefixesWithoutPlus(){
+    void failWithPrefixesWithoutPlus() {
         assertThrows(IllegalArgumentException.class, () -> {
             new TelephoneNumberFormat(8, "370", "8");
         });

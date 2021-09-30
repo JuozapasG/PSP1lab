@@ -7,26 +7,29 @@ import static org.junit.jupiter.api.Assertions.*;
 public class TestPhoneValidator {
 
     @Test
-    void allowNumbersMatchingFormat(){
+    void allowNumbersMatchingFormat() {
         PhoneValidator phoneValidator = new PhoneValidator();
         phoneValidator.addFormat("Lithuania", new TelephoneNumberFormat(8, "+370", "8"));
 
         assertTrue(phoneValidator.isValid("Lithuania", "+37012345678"));
         assertTrue(phoneValidator.isValid("Lithuania", "812345678"));
+        // TODO ADD TEST
     }
 
     @Test
-    void disallowNonDigitsInNumbers(){
+    void disallowNonDigitsInNumbers() {
         PhoneValidator phoneValidator = new PhoneValidator();
         phoneValidator.addFormat("Lithuania", new TelephoneNumberFormat(8, "+370", "8"));
 
         assertFalse(phoneValidator.isValid("Lithuania", "+A701345678"));
         assertFalse(phoneValidator.isValid("Lithuania", "A12345678"));
         assertTrue(phoneValidator.isValid("Lithuania", "+37012345678"));
+        assertFalse(phoneValidator.isValid("Lithuania", "+37012a45678")); //pridetas
+
     }
 
     @Test
-    void disallowNumbersWithWrongLength(){
+    void disallowNumbersWithWrongLength() {
         PhoneValidator phoneValidator = new PhoneValidator();
         phoneValidator.addFormat("Lithuania", new TelephoneNumberFormat(8, "+370", "8"));
 
@@ -37,7 +40,7 @@ public class TestPhoneValidator {
     }
 
     @Test
-    void disallowNumbersWithWrongInternationalPrefix(){
+    void disallowNumbersWithWrongInternationalPrefix() {
         PhoneValidator phoneValidator = new PhoneValidator();
         phoneValidator.addFormat("Lithuania", new TelephoneNumberFormat(8, "+370", "8"));
 
@@ -45,7 +48,7 @@ public class TestPhoneValidator {
     }
 
     @Test
-    void disallowNumbersWithWrongTrunkPrefix(){
+    void disallowNumbersWithWrongTrunkPrefix() {
         PhoneValidator phoneValidator = new PhoneValidator();
         phoneValidator.addFormat("Lithuania", new TelephoneNumberFormat(8, "+370", "8"));
 
@@ -53,7 +56,7 @@ public class TestPhoneValidator {
     }
 
     @Test
-    void changeMatchingTrunkToInternationalPrefix(){
+    void changeMatchingTrunkToInternationalPrefix() {
         PhoneValidator phoneValidator = new PhoneValidator();
         phoneValidator.addFormat("Lithuania", new TelephoneNumberFormat(8, "+370", "8"));
 
@@ -64,18 +67,18 @@ public class TestPhoneValidator {
     }
 
     @Test
-    void supportMultipleFormats(){
+    void supportMultipleFormats() {
         PhoneValidator phoneValidator = new PhoneValidator();
         phoneValidator.addFormat("Lithuania", new TelephoneNumberFormat(8, "+370", "8"));
         phoneValidator.addFormat("MiddleEarth", new TelephoneNumberFormat(9, "+1954", "7"));
 
-        assertTrue(phoneValidator.isValid("Lithuania", "+3701234567"));
+        assertTrue(phoneValidator.isValid("Lithuania", "+37012345678")); //BLOGAS TESTAS +3701234567
         assertTrue(phoneValidator.isValid("MiddleEarth", "+1954123456789"));
         assertFalse(phoneValidator.isValid("Lithuania", "+1954123456789"));
     }
 
     @Test
-    void failWithNonExistingFormat(){
+    void failWithNonExistingFormat() {
         PhoneValidator phoneValidator = new PhoneValidator();
         phoneValidator.addFormat("Lithuania", new TelephoneNumberFormat(8, "+370", "8"));
 
@@ -85,7 +88,7 @@ public class TestPhoneValidator {
     }
 
     @Test
-    void failWithNullFormat(){
+    void failWithNullFormat() {
         PhoneValidator phoneValidator = new PhoneValidator();
         phoneValidator.addFormat("Lithuania", new TelephoneNumberFormat(8, "+370", "8"));
 
@@ -95,7 +98,7 @@ public class TestPhoneValidator {
     }
 
     @Test
-    void failWithNullNumber(){
+    void failWithNullNumber() {
         PhoneValidator phoneValidator = new PhoneValidator();
         phoneValidator.addFormat("Lithuania", new TelephoneNumberFormat(8, "+370", "8"));
 
