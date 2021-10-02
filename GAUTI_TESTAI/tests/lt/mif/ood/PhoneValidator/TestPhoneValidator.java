@@ -13,7 +13,6 @@ public class TestPhoneValidator {
 
         assertTrue(phoneValidator.isValid("Lithuania", "+37012345678"));
         assertTrue(phoneValidator.isValid("Lithuania", "812345678"));
-        // TODO ADD TEST
     }
 
     @Test

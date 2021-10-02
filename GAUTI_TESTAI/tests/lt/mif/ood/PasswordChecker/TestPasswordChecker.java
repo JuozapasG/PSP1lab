@@ -13,7 +13,6 @@ public class TestPasswordChecker {
     void onlyAllowPasswordsPassingAllValidators(){
         PasswordChecker passwordChecker = new PasswordChecker();
 
-        //should mocks be used here when doing TDD?
         passwordChecker.addValidator(new LengthValidator(5));
         passwordChecker.addValidator(new SpecialCharacterValidator("!"));
         passwordChecker.addValidator(new UpperCaseValidator());

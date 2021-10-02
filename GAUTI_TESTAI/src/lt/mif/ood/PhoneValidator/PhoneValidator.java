@@ -27,21 +27,27 @@ public class PhoneValidator {
         if (phone.startsWith(phoneFormat.getTelephoneNumberFormat().getPrefix())) {
 
             var number = phone.substring(phoneFormat.getTelephoneNumberFormat().getPrefix().length());
-            try {
-                Character.isDigit(Integer.parseInt(number));
-            } catch (Exception e) {
-                return false;
-            }
-            return phone.length() == (phoneFormat.getTelephoneNumberFormat().getPrefix().length() + phoneFormat.getTelephoneNumberFormat().getLength());
+            return onlyDigits(number) &&
+                    phone.length() == (phoneFormat.getTelephoneNumberFormat().getPrefix().length() + phoneFormat.getTelephoneNumberFormat().getLength());
         }
         if (phone.startsWith(phoneFormat.getTelephoneNumberFormat().getTrunkPrefix())) {
-            return phone.length() == (phoneFormat.getTelephoneNumberFormat().getTrunkPrefix().length() + phoneFormat.getTelephoneNumberFormat().getLength());
+
+            return onlyDigits(phone) &&
+                    phone.length() == (phoneFormat.getTelephoneNumberFormat().getTrunkPrefix().length() + phoneFormat.getTelephoneNumberFormat().getLength());
         }
         return false;
     }
 
+    private boolean onlyDigits(String number) {
+        for (char c : number.toCharArray()) {
+            if (!Character.isDigit(c)) {
+                return false;
+            }
+        }
+        return true;
+    }
 
-    //NEREIKALINGAS METODAS
+
     public String toInternational(String format, String phone) throws IllegalArgumentException {
         var phoneFormat = resolveFormat(format);
         if (phone.startsWith(phoneFormat.getTelephoneNumberFormat().getTrunkPrefix())) {

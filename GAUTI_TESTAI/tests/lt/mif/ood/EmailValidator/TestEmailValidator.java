@@ -21,7 +21,6 @@ public class TestEmailValidator {
     @Test
     public void allowValidEmails() {
         EmailValidator emailValidator = new EmailValidator();
-//reikejo prideti neleistinus simbolius, nes yra bendras metodas, taciau simboliai niekur nepaduodami
 
         assertTrue(emailValidator.isValid("simple@example.com", forbiddenSymbols, domainAndTLD));
         assertTrue(emailValidator.isValid("very.common@example.com", forbiddenSymbols, domainAndTLD));

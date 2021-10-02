@@ -1,6 +1,5 @@
 package lt.mif.ood.EmailValidator;
 
-import java.util.Arrays;
 import java.util.List;
 
 public class EmailValidator {
