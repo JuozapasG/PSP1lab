@@ -23,7 +23,7 @@ public class TestPhoneValidator {
         assertFalse(phoneValidator.isValid("Lithuania", "+A701345678"));
         assertFalse(phoneValidator.isValid("Lithuania", "A12345678"));
         assertTrue(phoneValidator.isValid("Lithuania", "+37012345678"));
-        assertFalse(phoneValidator.isValid("Lithuania", "+37012a45678")); //pridetas
+        assertFalse(phoneValidator.isValid("Lithuania", "+37012a45678"));
 
     }
 
