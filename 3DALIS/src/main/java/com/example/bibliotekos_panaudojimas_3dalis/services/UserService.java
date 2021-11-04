@@ -33,11 +33,11 @@ public class UserService {
         }
     }
 
-    public List<User> showUsers() {
+    public List<User> getAllUsers() {
         return userRepository.findAll();
     }
 
-    public User showUserById(long id) {
+    public User getUserById(long id) {
         return userRepository.findById(id).orElse(null);
     }
 

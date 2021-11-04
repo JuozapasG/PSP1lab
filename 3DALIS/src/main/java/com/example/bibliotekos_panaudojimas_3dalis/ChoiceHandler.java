@@ -77,7 +77,7 @@ public class ChoiceHandler {
     }
 
     public void showUsers() {
-        var users = userService.showUsers();
+        var users = userService.getAllUsers();
         System.out.println("------------------");
         users.forEach(user -> System.out.println(user.getName() + " " + user.getSurname() + " " + user.getEmail()));
         System.out.println("------------------");
@@ -87,7 +87,7 @@ public class ChoiceHandler {
         System.out.println("------------------");
         System.out.println("Iveskite vartotojo id");
         var id = in.nextLong();
-        var user = userService.showUserById(id);
+        var user = userService.getUserById(id);
         if (user != null) {
             System.out.println(user.getName() + " " + user.getSurname() + " " + user.getEmail());
             System.out.println("------------------");
